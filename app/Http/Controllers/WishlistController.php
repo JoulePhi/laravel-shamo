@@ -34,7 +34,7 @@ class WishlistController extends Controller
 
     public function get(Request $request)
     {
-        $wishlists = Wishlist::with(['wishlistItems.products'])->where('user_id', $request->user()->id)->first();
+        $wishlists = Wishlist::with(['wishlistItems.product'])->where('user_id', $request->user()->id)->first();
         return ResponseFormatter::success($wishlists->wishlistItems, 'Success get list of wishlist items');
     }
 }

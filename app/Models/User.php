@@ -75,4 +75,13 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Wishlist::class, 'id', 'user_id');
     }
+
+    protected function defaultProfilePhotoUrl()
+    {
+        $name = trim(collect(explode(' ', $this->fullname))->map(function ($segment) {
+            return mb_substr($segment, 0, 1);
+        })->join(' '));
+
+        return 'https://ui-avatars.com/api/?name=' . urlencode($name) . '&color=7F9CF5&background=EBF4FF';
+    }
 }

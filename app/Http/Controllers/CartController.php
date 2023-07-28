@@ -38,7 +38,7 @@ class CartController extends Controller
 
     public function get(Request $request)
     {
-        $carts = Cart::with(['cartItems.products'])->where('user_id', $request->user()->id)->first();
+        $carts = Cart::with(['cartItems.product'])->where('user_id', $request->user()->id)->first();
         return ResponseFormatter::success($carts->cartItems, 'Success get list of cart items');
     }
 }
