@@ -41,4 +41,11 @@ class CartController extends Controller
         $carts = Cart::with(['cartItems.product'])->where('user_id', $request->user()->id)->first();
         return ResponseFormatter::success($carts->cartItems, 'Success get list of cart items');
     }
+
+    public function delete(Request $request)
+    {
+        $cart = CartItem::find($request->id);
+        $cart->delete();
+        return ResponseFormatter::success($cart, 'Success remove cart items');
+    }
 }

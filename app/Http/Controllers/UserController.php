@@ -103,8 +103,9 @@ class UserController extends Controller
 
     public function fetch(Request $request)
     {
+        $user = User::with(['cart', 'wishlist'])->where('id', $request->user()->id)->first();
         return ResponseFormatter::success(
-            $request->user(),
+            $user,
             'Success Get User'
         );
     }

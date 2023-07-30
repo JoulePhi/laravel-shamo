@@ -37,4 +37,11 @@ class WishlistController extends Controller
         $wishlists = Wishlist::with(['wishlistItems.product'])->where('user_id', $request->user()->id)->first();
         return ResponseFormatter::success($wishlists->wishlistItems, 'Success get list of wishlist items');
     }
+
+    public function delete(Request $request)
+    {
+        $wishlist = WishlistItem::find($request->id);
+        $wishlist->delete();
+        return ResponseFormatter::success($wishlist, 'Success remove wishlist items');
+    }
 }
