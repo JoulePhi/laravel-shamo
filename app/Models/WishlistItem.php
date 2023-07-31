@@ -19,4 +19,14 @@ class WishlistItem extends Model
     {
         return $this->belongsTo(Product::class, 'product_id', 'id');
     }
+
+    /**
+     * Get the wishlist that owns the WishlistItem
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function wishlist(): BelongsTo
+    {
+        return $this->belongsTo(Wishlist::class, 'wishlist_id', 'id');
+    }
 }

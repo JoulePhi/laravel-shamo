@@ -30,7 +30,7 @@ class CategoryController extends Controller
         }
 
         if ($show_product) {
-            $category->with(['products']);
+            $category->with(['products.wishlist_items                                                                                                                                                                                                                                                                                           ']);
         }
 
         return ResponseFormatter::success(

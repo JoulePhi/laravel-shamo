@@ -24,7 +24,7 @@ class ProductController extends Controller
             if ($products) {
                 return ResponseFormatter::success($products, 'Success get list of products');
             }
-            return ResponseFormatter::error('Failed get list of prodicts', 404);
+            return ResponseFormatter::error('Failed get list of products', 404);
         }
 
         $products = Product::with(['category', 'galleries']);

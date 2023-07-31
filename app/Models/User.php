@@ -32,7 +32,8 @@ class User extends Authenticatable
         'phone_number',
         'password',
         'cart_id',
-        'wishlist_id'
+        'wishlist_id',
+        'role',
     ];
 
     /**
