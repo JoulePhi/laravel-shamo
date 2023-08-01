@@ -30,8 +30,9 @@ class CategoryController extends Controller
         }
 
         if ($show_product) {
-            $category->with(['products.wishlist_items                                                                                                                                                                                                                                                                                           ']);
+            $category->with(['products']);
         }
+
 
         return ResponseFormatter::success(
             $category->paginate($limit),
